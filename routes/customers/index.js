@@ -13,7 +13,7 @@ router.get('/', async (req, res, next) => {
 })
 
 //POST route for creating a reservation for the user
-router.post('/',  async(req, res, next)=> {
+router.post('/:customer_id/reservations',  async(req, res, next)=> {
   try {
     const customerId = req.params.customer_id;
     console.log('Customer ID:', customerId);
@@ -30,7 +30,7 @@ router.post('/',  async(req, res, next)=> {
 });
 
 // DELETE route to destroy a Reservation for a user
-router.delete('/', async (req, res, next) => {
+router.delete('/:customer_id/reservations/:id', async (req, res, next) => {
   try {
       await destroyReservation({ customer_id: req.params.customer_id, id: req.params.id });
       res.sendStatus(204); // Send a 204 No Content response upon successful deletion

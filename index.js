@@ -12,7 +12,7 @@ const {
   fetchRestaurants,
   fetchReservations,
   destroyReservation 
-} = require('./server'); //import from server/index.js modularizing the functions
+} = require('./server'); //imports of modularized f(n)s from server/index.js 
 const port = process.env.PORT || 3000; // port call for express server funcitonality
 app.listen(port, ()=> {
     console.log(`listening on port ${port}`);
@@ -61,8 +61,8 @@ const init = async () => {
     }),
   ]);
   console.log(await fetchReservations());
-  await destroyReservation({ id: reservation.id, customer_id: reservation.customer_id});
-  console.log(await fetchReservations());
+  // await destroyReservation({ id: reservation.id, customer_id: reservation.customer_id});
+  // console.log(await fetchReservations());
   
 };
 
